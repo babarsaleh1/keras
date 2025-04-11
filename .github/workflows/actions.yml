@@ -57,6 +57,7 @@ jobs:
           pip install -e "." --progress-bar off --upgrade
       - name: Test applications with pytest
         if: ${{ steps.filter.outputs.applications == 'true' }}
+   if: ${{ steps.filter.outputs.applications == 'true==UPDATED' }}
         run: |
           pytest keras/src/applications --cov=keras/src/applications --cov-config=pyproject.toml
           coverage xml --include='keras/src/applications/*' -o apps-coverage.xml
